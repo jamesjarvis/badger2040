@@ -7,7 +7,7 @@ import random
 
 # LETS START FROM SCRATCH
 
-TOTAL_QUOTES = 2042
+TOTAL_QUOTES = int(2042)
 text_file = "quotes/quotes.txt"
 try:
     open(text_file, "r")
@@ -77,7 +77,7 @@ def display_random_quote():
         display.set_pen(0)
         display.set_font(FONT)
         display.set_thickness(FONT_THICKNESS)
-        display.text(line, TEXT_PADDING, (row * text_spacing) + (text_spacing // 2) + TEXT_PADDING, TEXT_SIZE)
+        display.text(line, TEXT_PADDING, int(row * text_spacing) + int(text_spacing // 2) + TEXT_PADDING, TEXT_SIZE)
         row += 1
     display.update()
 
