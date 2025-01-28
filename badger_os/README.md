@@ -16,6 +16,7 @@ They should help you get started quickly and give you something to modify for yo
   - [Net Info](#net-info)
   - [News](#news)
   - [Qrgen](#qrgen)
+  - [Quotes](#quotes)
   - [Weather](#weather)
 - [Other Resources](#other-resources)
 
@@ -113,6 +114,11 @@ View BBC news headlines.
 [qrgen.py](examples/qrgen.py)
 
 Display QR codes and associated text.
+
+### Quotes
+[quotes.py](examples/quotes.py)
+
+Display a random quote from the goodreads corpus.
 
 ### Weather
 [weather.py](examples/weather.py)
