@@ -45,7 +45,7 @@ display.set_update_speed(badger2040.UPDATE_MEDIUM)
 
 
 def display_random_quote():
-    display.pen(15)
+    display.set_pen(15)
     display.clear()
     # Open the quotes file.
     quotes = open(text_file, "r")
@@ -74,8 +74,9 @@ def display_random_quote():
 
     row = 0
     for line in lines:
-        display.pen(0)
-        display.thickness(FONT_THICKNESS)
+        display.set_pen(0)
+        display.set_font(FONT)
+        display.set_thickness(FONT_THICKNESS)
         display.text(line, TEXT_PADDING, (row * text_spacing) + (text_spacing // 2) + TEXT_PADDING, TEXT_SIZE)
         row += 1
     display.update()
@@ -84,6 +85,10 @@ def display_random_quote():
 # Main program loop
 changed = True
 while True:
+    # Sometimes a button press or hold will keep the system
+    # powered *through* HALT, so latch the power back on.
+    display.keepalive()
+
     if display.pressed(badger2040.BUTTON_A):
         changed = True
 
