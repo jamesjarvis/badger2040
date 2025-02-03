@@ -31,7 +31,7 @@ WIDTH = badger2040.WIDTH
 HEIGHT = badger2040.HEIGHT
 
 TEXT_PADDING = 4
-ARBITRARY_WIDTH_ADJUSTMENT = 60
+ARBITRARY_WIDTH_ADJUSTMENT = 1
 TEXT_WIDTH = WIDTH - TEXT_PADDING - TEXT_PADDING - ARBITRARY_WIDTH_ADJUSTMENT
 TEXT_SIZE = 0.55
 
@@ -43,6 +43,9 @@ text_spacing = int(34 * TEXT_SIZE)
 display = badger2040.Badger2040()
 display.led(128)
 display.set_update_speed(badger2040.UPDATE_MEDIUM)
+display.set_pen(0)
+display.set_font(FONT)
+display.set_thickness(FONT_THICKNESS)
 
 
 def display_random_quote():
@@ -75,9 +78,6 @@ def display_random_quote():
 
     row = 0
     for line in lines:
-        display.set_pen(0)
-        display.set_font(FONT)
-        display.set_thickness(FONT_THICKNESS)
         y = int(row * text_spacing) + int(text_spacing // 2) + TEXT_PADDING
         display.text(line, TEXT_PADDING, y, TEXT_WIDTH, TEXT_SIZE)
         row += 1
