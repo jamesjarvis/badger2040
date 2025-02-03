@@ -48,6 +48,7 @@ display.set_thickness(FONT_THICKNESS)
 
 def display_random_quote():
     display.set_pen(15)
+    display.set_thickness(FONT_THICKNESS)
     display.clear()
     # Open the quotes file.
     quotes = open(text_file, "r")
@@ -72,12 +73,15 @@ def display_random_quote():
 
     lines.append(latest_line)
 
-    lines.append(current_quote_json["author"])
+    lines.append("- " + current_quote_json["author"])
 
     row = 0
     for line in lines:
         y = int(row * text_spacing) + int(text_spacing // 2) + TEXT_PADDING
         display.set_pen(0)
+        if row + 1 == len(lines):
+            # last line is the author, make a bit bolder.
+            display.set_thickness(FONT_THICKNESS+1)
         display.text(line, TEXT_PADDING, y, TEXT_WIDTH, TEXT_SIZE)
         row += 1
     display.update()
